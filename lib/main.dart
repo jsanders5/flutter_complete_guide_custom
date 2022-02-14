@@ -16,15 +16,8 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatelessWidget {
   final List<Transaction> transactions = [
     Transaction(
-        id: 't1',
-        title: 'Car Payment',
-        amount: 745.00,
-        date: DateTime.now()),
-    Transaction(
-        id: 't2',
-        title: 'Rent',
-        amount: 2400.00,
-        date: DateTime.now()),
+        id: 't1', title: 'Car Payment', amount: 745.00, date: DateTime.now()),
+    Transaction(id: 't2', title: 'Rent', amount: 2400.00, date: DateTime.now()),
   ];
 
   @override
@@ -36,9 +29,9 @@ class MyHomePage extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: const <Widget>[
+        children: <Widget>[
           //Container(
-          SizedBox(
+          const SizedBox(
             width: double.infinity,
             child: Card(
               color: Colors.blue,
@@ -46,9 +39,12 @@ class MyHomePage extends StatelessWidget {
               elevation: 5,
             ),
           ),
-          Card(
-            color: Colors.redAccent,
-            child: Text('LIST OF TX'),
+          Column(
+            children: transactions.map((tx) {
+              return Card(
+                child: Text(tx.title),
+              );
+            }).toList(),
           ),
         ],
       ),
