@@ -46,26 +46,52 @@ class MyHomePage extends StatelessWidget {
                 child: Row(
                   children: <Widget>[
                     Container(
+                      alignment: Alignment.centerRight,
                       margin: const EdgeInsets.symmetric(
                         vertical: 10.0,
                         horizontal: 15.0,
                       ),
                       decoration: BoxDecoration(
                         border: Border.all(
-                          color: Colors.black,
+                          color: Colors.purple,
                           width: 2,
                         ),
                       ),
                       padding: const EdgeInsets.all(10.0),
+                      constraints: const BoxConstraints(
+                        minWidth: 110,
+                      ),
                       child: Text(
                         tx.amount.toString(),
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20.0,
+                          color: Colors.purple,
+                        ),
                       ),
                     ),
                     Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Text(tx.title),
-                        Text(
-                          tx.date.toString(),
+                        Container(
+                          child: Text(
+                            tx.title,
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18.0,
+                              color: Colors.black54,
+                            ),
+                          ),
+                        ),
+                        Container(
+                          child: Text(
+                            tx.date.toString(),
+                            style: const TextStyle(
+                              fontWeight: FontWeight.normal,
+                              fontSize: 14.0,
+                              color: Colors.black38,
+                            ),
+                          ),
                         ),
                       ],
                     ),
