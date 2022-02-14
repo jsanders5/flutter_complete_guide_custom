@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 import './transaction.dart';
 
 void main() => runApp(MyApp());
@@ -45,17 +46,28 @@ class MyHomePage extends StatelessWidget {
                 child: Row(
                   children: <Widget>[
                     Container(
+                      margin: const EdgeInsets.symmetric(
+                        vertical: 10.0,
+                        horizontal: 15.0,
+                      ),
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.black,
+                          width: 2,
+                        ),
+                      ),
+                      padding: const EdgeInsets.all(10.0),
                       child: Text(
                         tx.amount.toString(),
                       ),
                     ),
                     Column(
                       children: <Widget>[
-                          Text(tx.title),
-                          Text(
-                            tx.date.toString(),
-                          ),
-                    ],
+                        Text(tx.title),
+                        Text(
+                          tx.date.toString(),
+                        ),
+                      ],
                     ),
                   ],
                 ),
